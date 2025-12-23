@@ -1,0 +1,11 @@
+---
+sde_dbt_tutorial:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ./dbt.duckdb
+    prod:
+      type: duckdb
+      path: ./dbt-prod.duckdb
+

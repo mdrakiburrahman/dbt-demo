@@ -35,6 +35,11 @@ if [ -n "$PACKAGES" ]; then
   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $PACKAGES > /dev/null 2>&1
 fi
 command -v uv &> /dev/null || curl -LsSf https://astral.sh/uv/install.sh | sh
+if ! command -v duckdb &> /dev/null; then
+    echo "duckdb not found - installing..."
+    curl https://install.duckdb.org | sh
+    export PATH="$HOME/.duckdb/cli/latest:$PATH"
+fi
 
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$PATH:$HOME/.local/bin"
 
@@ -48,3 +53,4 @@ echo "Docker: $(docker --version)"
 echo "UV: $(uv --version)"
 echo "Python: $(python --version)"
 echo "Pip: $(pip --version)"
+echo "DuckDB: $(duckdb --version)"
