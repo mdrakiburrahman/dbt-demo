@@ -25,8 +25,9 @@ fi
 sudo chmod 666 /var/run/docker.sock
 
 PACKAGES=""
-if ! command -v python &> /dev/null; then PACKAGES="python3"; fi
+if ! command -v python &> /dev/null; then PACKAGES="python3 python-is-python3 python3-venv"; fi
 if ! command -v pip &> /dev/null; then PACKAGES="${PACKAGES:+$PACKAGES }python3-pip"; fi
+if ! dpkg -l | grep -q libpq-dev; then PACKAGES="${PACKAGES:+$PACKAGES }libpq-dev"; fi
 if [ -n "$PACKAGES" ]; then
   echo "Installing packages: $PACKAGES"
   sudo apt-get update > /dev/null 2>&1
@@ -44,3 +45,5 @@ echo ""
 
 echo "Docker: $(docker --version)"
 echo "UV: $(uv --version)"
+echo "Python: $(python --version)"
+echo "Pip: $(pip --version)"

@@ -1,24 +1,26 @@
 # DBT with Postgres Container
 
-``` PowerShell
-# Python setup
-python -m venv env # Create venv
-& env\Scripts\Activate.ps1 # Activate venv
+```bash
+GIT_ROOT=$(git rev-parse --show-toplevel)
+cd "${GIT_ROOT}/1_postgres"
+
+python -m venv env
+source env/bin/activate
 pip install -r requirements.txt
 
-# Validate install
 dbt --version
-# installed version: 1.0.3
-#    latest version: 1.0.3
-
-# Up to date!
-
+# Core:
+#   - installed: 1.11.2
+#   - latest:    1.11.2 - Up to date!
+# 
 # Plugins:
-#   - postgres: 1.0.3 - Up to date!
+#   - postgres: 1.10.0 - Up to date!
+
 docker --version
-# Docker version 20.10.12, build e91ed57
+# Docker version 29.1.3, build f52814d
+
 pgcli --version
-# Version: 3.4.0
+# Version: Version: 4.3.0
 
 # deactivate # Deactivate venv
 ```
