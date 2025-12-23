@@ -63,33 +63,36 @@ Let's do some testing, Insert some data into source customer table(in our case t
 # and append it to ./raw_data/customers.csv
 echo "" >> ./raw_data/customers.csv
 tail -n +2 ./raw_data/customer_new.csv >> ./raw_data/customers.csv
-
-# NOTE: Windows users need to do this manually or via powershell as
 ```
 
 Run snapshot and create models again.
 
 ```bash
-dbt snapshot 
+dbt snapshot
 dbt run 
 ```
 
+Reset `customers.csv`:
 ```bash
-# reset customers.csv
 head -n -5 ./raw_data/customers.csv > temp
-cat temp > ./raw_data/customers.csv 
+cat temp > ./raw_data/customers.csv
 rm temp
 ```
 
-Let's open a python REPL and check our data, as shown below:
+Let's open a DuckDB CLI and check our data, as shown below:
 
-```python
-import duckdb
-con = duckdb.connect("dbt.duckdb")
-results = con.execute("select * from snapshots.customers_snapshot where customer_id = 82").fetchall()
-for row in results:
-    print(row)
-# NOTE: You will see 2 rows printed
-exit()
+```sql
+ATTACH '/home/mdrrahman/dbt-demo/tutorials/2_duckdb/dbt.duckdb' AS dbt;
+
+SELECT * FROM dbt.snapshots.customers_snapshot WHERE customer_id = 82;
+
+-- ┌─────────────┬─────────┬──────────────┬────────────┬─────────────────────┬───┬──────────────────────┬─────────────────────┬─────────────────────┬──────────────┐
+-- │ customer_id │ zipcode │     city     │ state_code │  datetime_created   │ … │      dbt_scd_id      │   dbt_updated_at    │   dbt_valid_from    │ dbt_valid_to │
+-- │    int64    │ varchar │   varchar    │  varchar   │      timestamp      │   │       varchar        │      timestamp      │      timestamp      │  timestamp   │
+-- ├─────────────┼─────────┼──────────────┼────────────┼─────────────────────┼───┼──────────────────────┼─────────────────────┼─────────────────────┼──────────────┤
+-- │     82      │ 59655   │ areia branca │ RN         │ 2017-10-18 00:00:00 │ … │ d5ce49419bd8ed844a…  │ 2017-10-18 00:00:00 │ 2017-10-18 00:00:00 │ NULL         │
+-- ├─────────────┴─────────┴──────────────┴────────────┴─────────────────────┴───┴──────────────────────┴─────────────────────┴─────────────────────┴──────────────┤
+-- │ 1 rows                                                                                                                                   10 columns (9 shown) │
+-- └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
