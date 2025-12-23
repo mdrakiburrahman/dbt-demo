@@ -11,8 +11,6 @@ set -e
 set -m
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
-NPMRC_TMPL="$REPO_ROOT/.npmrc.tmpl"
-NPMRC="$REPO_ROOT/.npmrc"
 
 echo ""
 echo "┌──────────────────────┐"
@@ -26,36 +24,17 @@ if ! command -v docker &> /dev/null; then
 fi
 sudo chmod 666 /var/run/docker.sock
 
-if ! command -v az &> /dev/null; then
-    echo "az not found - installing..."
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+PACKAGES=""
+if ! command -v python &> /dev/null; then PACKAGES="python3"; fi
+if ! command -v pip &> /dev/null; then PACKAGES="${PACKAGES:+$PACKAGES }python3-pip"; fi
+if [ -n "$PACKAGES" ]; then
+  echo "Installing packages: $PACKAGES"
+  sudo apt-get update > /dev/null 2>&1
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $PACKAGES > /dev/null 2>&1
 fi
+command -v uv &> /dev/null || curl -LsSf https://astral.sh/uv/install.sh | sh
 
-if ! [ -x "$(command -v npm)" ]; then
-  echo "npm is not installed on your devbox, installing..."
-  curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-  sudo apt-get update 2>&1 > /dev/null
-  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
-else
-  echo "npm is already installed."
-fi
-
-echo ""
-echo "┌────────────────┐"
-echo "│ Authentication │"
-echo "└────────────────┘"
-echo ""
-
-az account get-access-token --query "expiresOn" -o tsv >/dev/null 2>&1
-if [[ $? -ne 0 ]]; then
-    echo "az is not logged in, logging in..."
-    az login --use-device-code >/dev/null
-fi
-
-az acr login --name monitoringdev
-
-cp $NPMRC_TMPL $NPMRC
-sed -i "s/_authToken=.*/_authToken=$(az account get-access-token --resource '499b84ac-1321-427f-aa17-267ca6975798' --query accessToken --output tsv --tenant '72f988bf-86f1-41af-91ab-2d7cd011db47')/" $NPMRC
+[[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$PATH:$HOME/.local/bin"
 
 echo ""
 echo "┌──────────┐"
@@ -64,5 +43,4 @@ echo "└──────────┘"
 echo ""
 
 echo "Docker: $(docker --version)"
-echo "Azure CLI: $(az version)"
-echo "npm: $(npm version)"
+echo "UV: $(uv --version)"
