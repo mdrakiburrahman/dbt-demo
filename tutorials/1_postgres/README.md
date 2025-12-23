@@ -292,7 +292,7 @@ dbt docs generate
 ```
 
 ```bash
-cat /home/mdrrahman/dbt-demo/1_postgres/sde_dbt_tutorial/target/catalog.json | jq .
+cat ${GIT_ROOT}/tutorials/1_postgres/sde_dbt_tutorial/target/catalog.json | jq .
 
 # {
 #   "metadata": {
