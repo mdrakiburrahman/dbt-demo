@@ -10,7 +10,7 @@
 
 ```bash
 GIT_ROOT=$(git rev-parse --show-toplevel)
-cd "${GIT_ROOT}/1_postgres"
+cd "${GIT_ROOT}/tutorials/1_postgres"
 
 python -m venv env
 source env/bin/activate
