@@ -34,6 +34,7 @@ pgcli --version
 ```
 
 Spin up Postgres container from WSL (for mount):
+
 ```bash
 docker-compose up -d
 ```
