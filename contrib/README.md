@@ -2,6 +2,13 @@
 
 ## How to use, on a Linux machine
 
+1. Windows pre-reqs
+
+   ```powershell
+   winget install -e --id Microsoft.VisualStudioCode
+   winget install -e --id Docker.DockerDesktop
+   ```
+
 1. Get a fresh new WSL machine up:
 
    ```powershell
