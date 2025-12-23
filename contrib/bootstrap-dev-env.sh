@@ -28,6 +28,7 @@ PACKAGES=""
 if ! command -v python &> /dev/null; then PACKAGES="python3 python-is-python3 python3-venv"; fi
 if ! command -v pip &> /dev/null; then PACKAGES="${PACKAGES:+$PACKAGES }python3-pip"; fi
 if ! command -v jq &> /dev/null; then PACKAGES="${PACKAGES:+$PACKAGES }jq"; fi
+if ! command -v 7z &> /dev/null; then PACKAGES="${PACKAGES:+$PACKAGES }p7zip-full"; fi
 if ! dpkg -l | grep -q libpq-dev; then PACKAGES="${PACKAGES:+$PACKAGES }libpq-dev"; fi
 if [ -n "$PACKAGES" ]; then
   echo "Installing packages: $PACKAGES"
