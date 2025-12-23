@@ -72,6 +72,7 @@ dbt run
 ```
 
 Reset `customers.csv`:
+
 ```bash
 head -n -5 ./raw_data/customers.csv > temp
 cat temp > ./raw_data/customers.csv
