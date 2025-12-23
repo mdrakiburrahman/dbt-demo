@@ -18,7 +18,7 @@
 
 Dimensional modelling is one of many data modelling techniques that are used by data practitioners to organize and present data for analytics. Other data modelling techniques include Data Vault (DV), Third Normal Form (3NF), and One Big Table (OBT) to name a few.
 
-![](docs/img/data-modelling.png)
+![Data Model](docs/img/data-modelling.png)
 *Data modelling techniques on a normalization vs denormalization scale*
 
 While the relevancy of dimensional modelling [has been debated by data practitioners](https://discourse.getdbt.com/t/is-kimball-dimensional-modeling-still-relevant-in-a-modern-data-warehouse/225/6), it is still one of the most widely adopted data modelling technique for analytics. 
