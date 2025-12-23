@@ -80,7 +80,7 @@ ORDER BY schemaname, tablename;
 ## Run
 
 ```bash
-export DBT_PROFILES_DIR="${GIT_ROOT}/1_postgres/sde_dbt_tutorial"
+export DBT_PROFILES_DIR="${GIT_ROOT}/tutorials/1_postgres/sde_dbt_tutorial"
 
 # Compile SQL statements but don't run them
 dbt compile
