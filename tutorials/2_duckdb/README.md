@@ -11,7 +11,6 @@
 GIT_ROOT=$(git rev-parse --show-toplevel)
 cd "${GIT_ROOT}/tutorials/2_duckdb"
 
-rm -rf .venv
 uv python install 3.13
 uv venv --python 3.13
 uv sync
