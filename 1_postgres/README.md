@@ -27,13 +27,13 @@ pgcli --version
 
 Spin up Postgres container from WSL (for mount):
 ```bash
-cd '1_postgres'
 docker-compose up -d
 ```
 
-Connect from PowerShell:
-```PowerShell
-$env:PGPASSWORD="password1234"
+Connect from terminal:
+
+```bash
+export PGPASSWORD="password1234"
 pgcli -h localhost -U dbt -p 5432 -d dbt
 
 # Server: PostgreSQL 13.6 (Debian 13.6-1.pgdg110+1)
