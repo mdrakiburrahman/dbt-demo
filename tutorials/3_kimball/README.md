@@ -73,7 +73,8 @@ dbt --version
 ## Run
 
 ```bash
-cd "${GIT_ROOT}/tutorials/3_kimball/adventureworks"
+export DBT_PROFILES_DIR="${GIT_ROOT}/tutorials/3_kimball/adventureworks"
+cd "${DBT_PROFILES_DIR}"
 
 # Install deps
 dbt deps
