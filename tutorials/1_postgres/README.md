@@ -81,6 +81,7 @@ ORDER BY schemaname, tablename;
 
 ```bash
 export DBT_PROFILES_DIR="${GIT_ROOT}/tutorials/1_postgres/sde_dbt_tutorial"
+cd ${DBT_PROFILES_DIR}
 
 # Compile SQL statements but don't run them
 dbt compile
