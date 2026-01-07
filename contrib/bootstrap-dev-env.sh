@@ -22,7 +22,6 @@ if ! command -v docker &> /dev/null; then
     echo "docker not found - installing..."
     curl -sL https://get.docker.com | sudo bash
 fi
-sudo chmod 666 /var/run/docker.sock
 
 PACKAGES=""
 if ! command -v python &> /dev/null; then PACKAGES="python3 python-is-python3 python3-venv"; fi
@@ -44,6 +43,7 @@ if ! command -v duckdb &> /dev/null; then
 fi
 
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$PATH:$HOME/.local/bin"
+sudo chmod 666 /var/run/docker.sock
 
 echo ""
 echo "┌──────────┐"
