@@ -11,6 +11,7 @@ set -e
 set -m
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
+DOCKER_VERSION="5:27.5.1-1~ubuntu.24.04~noble"
 
 echo ""
 echo "┌──────────────────────┐"
@@ -18,9 +19,15 @@ echo "│ Installing CLI tools │"
 echo "└──────────────────────┘"
 echo ""
 
-if ! command -v docker &> /dev/null; then
-    echo "docker not found - installing..."
-    curl -sL https://get.docker.com | sudo bash
+if ! [ -x "$(command -v docker)" ]; then
+  echo "docker is not installed on your devbox, installing..."
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt-get update -q
+  sudo apt-get install -y apt-transport-https ca-certificates curl
+  sudo apt-get install -y --allow-downgrades docker-ce="$DOCKER_VERSION" docker-ce-cli="$DOCKER_VERSION" containerd.io
+else
+  echo "docker is already installed."
 fi
 
 PACKAGES=""

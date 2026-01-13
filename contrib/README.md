@@ -6,7 +6,15 @@
 
    ```powershell
    winget install -e --id Microsoft.VisualStudioCode
-   winget install -e --id Docker.DockerDesktop
+   ```
+
+1. Get a fresh new WSL machine up:
+
+   > ⚠️ Warning: this removes Docker Desktop if you have it installed
+
+   ```powershell
+   $GIT_ROOT = git rev-parse --show-toplevel
+   & "$GIT_ROOT\contrib\bootstrap-dev-env.ps1"
    ```
 
 1. Get a fresh new WSL machine up:
@@ -32,13 +40,16 @@
    code .
    ```
 
-1. Reset your docker WSL integration since this is a new VM:
-
-   > `Docker Desktop: Settings > Resources > WSL Integration > Turn off/on Ubuntu-24.04`
-
 1. Run the bootstrapper script, that installs all tools idempotently:
 
    ```bash
    GIT_ROOT=$(git rev-parse --show-toplevel)
    chmod +x ${GIT_ROOT}/contrib/bootstrap-dev-env.sh && ${GIT_ROOT}/contrib/bootstrap-dev-env.sh
+
+   ```
+
+1. Source the path to apply environment changes:
+
+   ```bash
+   source ~/.bashrc
    ```
