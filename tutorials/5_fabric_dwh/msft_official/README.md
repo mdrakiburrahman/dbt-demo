@@ -191,3 +191,10 @@ dbt test
 # 22:04:04  
 # 22:04:04  Done. PASS=20 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=20
 ```
+
+And we can see the DBT DAG:
+
+```bash
+dbt docs generate
+dbt docs serve
+```
