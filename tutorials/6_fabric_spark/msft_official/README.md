@@ -88,16 +88,16 @@ under the `arguments` property.
         Retrying in 10 seconds (0 of 25)
 17:59:21  Microsoft Fabric-Spark adapter: Warning: No message, retrying due to 'retry_all' configuration set to true.
         Retrying in 10 seconds (1 of 25)
-18:00:02  1 of 5 START sql view model demo_etl_dbt.stg_customers ......................... [RUN]
-18:00:09  1 of 5 OK created sql view model demo_etl_dbt.stg_customers .................... [OK in 6.64s]
-18:00:09  2 of 5 START sql view model demo_etl_dbt.stg_orders ............................ [RUN]
-18:00:15  2 of 5 OK created sql view model demo_etl_dbt.stg_orders ....................... [OK in 6.48s]
-18:00:15  3 of 5 START sql view model demo_etl_dbt.stg_payments .......................... [RUN]
-18:00:21  3 of 5 OK created sql view model demo_etl_dbt.stg_payments ..................... [OK in 6.15s]
-18:00:21  4 of 5 START sql view model demo_etl_dbt.customers ............................. [RUN]
-18:00:28  4 of 5 OK created sql view model demo_etl_dbt.customers ........................ [OK in 6.46s]
-18:00:28  5 of 5 START sql view model demo_etl_dbt.orders ................................ [RUN]
-18:00:34  5 of 5 OK created sql view model demo_etl_dbt.orders ........................... [OK in 6.39s]
+18:10:59  1 of 5 START sql view model demo_etl_dbt.stg_customers ......................... [RUN]
+18:11:06  1 of 5 OK created sql view model demo_etl_dbt.stg_customers .................... [OK in 7.06s]
+18:11:06  2 of 5 START sql view model demo_etl_dbt.stg_orders ............................ [RUN]
+18:11:13  2 of 5 OK created sql view model demo_etl_dbt.stg_orders ....................... [OK in 6.87s]
+18:11:13  3 of 5 START sql view model demo_etl_dbt.stg_payments .......................... [RUN]
+18:11:20  3 of 5 OK created sql view model demo_etl_dbt.stg_payments ..................... [OK in 6.44s]
+18:11:20  4 of 5 START sql table model demo_etl_dbt.customers ............................ [RUN]
+18:11:50  4 of 5 OK created sql table model demo_etl_dbt.customers ....................... [OK in 30.77s]
+18:11:50  5 of 5 START sql table model demo_etl_dbt.orders ............................... [RUN]
+18:12:09  5 of 5 OK created sql table model demo_etl_dbt.orders .......................... [OK in 18.27s]
 18:00:36  
 18:00:36  Finished running 5 view models in 0 hours 1 minutes and 27.91 seconds (87.91s).
 18:00:36  

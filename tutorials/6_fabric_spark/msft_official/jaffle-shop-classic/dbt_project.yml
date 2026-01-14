@@ -24,6 +24,7 @@ require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 models:
   jaffle_shop:
-      materialized: view
+      materialized: table
+      file_format: delta
       staging:
         materialized: view
