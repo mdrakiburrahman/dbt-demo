@@ -4,7 +4,7 @@ jaffle_shop:
     fabric-dev:
       authentication: CLI
       method: livy
-      connect_retries: 0
+      connect_retries: 25
       connect_timeout: 10
       endpoint: https://api.fabric.microsoft.com/v1
       workspaceid: b4e2b127-32f1-49e7-a3aa-a87dba44990c
