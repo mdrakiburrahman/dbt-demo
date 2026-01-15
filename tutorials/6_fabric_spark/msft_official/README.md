@@ -3,6 +3,7 @@
 * [Microsoft Official](https://learn.microsoft.com/en-us/fabric/data-warehouse/tutorial-setup-dbt)
 * [DBT Fabric Spark setup](https://docs.getdbt.com/docs/core/connect-data-platform/fabricspark-setup)
 * [DBT Fabric Spark configuration](https://docs.getdbt.com/reference/resource-configs/fabricspark-configs)
+* [Livy Endpoint](https://learn.microsoft.com/en-us/fabric/data-engineering/get-started-api-livy#how-to-authorize-the-livy-api-requests-with-an-entra-spn-token)
 
 ## Environment setup
 
