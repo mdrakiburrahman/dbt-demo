@@ -23,6 +23,7 @@ dbt --version
 Test connectivity:
 
 > Warning: flaky, needs retries configured for the config
+> Ensure you're logged into `az login` first
 
 ```bash
 cd "${GIT_ROOT}/tutorials/6_fabric_spark/msft_official/jaffle-shop-classic"
