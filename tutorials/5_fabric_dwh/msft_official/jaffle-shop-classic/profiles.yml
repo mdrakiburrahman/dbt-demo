@@ -3,9 +3,9 @@ jaffle_shop:
   outputs:
     fabric-dev:
       authentication: CLI
-      database: "demo_warehouse"
+      database: "dbt"
       driver: ODBC Driver 18 for SQL Server
-      host: "x6eps4xrq2xudenlfv6naeo3i4-e6y6fnhrgltuti5kvb63urezbq.msit-datawarehouse.fabric.microsoft.com"
+      host: "x6eps4xrq2xudenlfv6naeo3i4-anhtowftld4erluwowhynlwxfu.msit-datawarehouse.fabric.microsoft.com"
       schema: dbo
       threads: 4
       type: fabric

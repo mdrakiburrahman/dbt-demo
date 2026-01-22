@@ -20,6 +20,7 @@ dbt --version
 Test connectivity:
 
 ```bash
+cd "${GIT_ROOT}/tutorials/5_fabric_dwh/msft_official/jaffle-shop-classic"
 export DBT_PROFILES_DIR=$(pwd)
 dbt debug
 
