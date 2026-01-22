@@ -32,6 +32,7 @@ az login
 
 cd "${GIT_ROOT}/tutorials/6_fabric_spark/msft_official/jaffle-shop-classic"
 export DBT_PROFILES_DIR=$(pwd)
+export DBT_DEBUG=true
 dbt debug
 ```
 
