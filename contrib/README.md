@@ -17,16 +17,6 @@
    & "$GIT_ROOT\contrib\bootstrap-dev-env.ps1"
    ```
 
-1. Get a fresh new WSL machine up:
-
-   ```powershell
-   # Delete old WSL
-   wsl --unregister Ubuntu-24.04
-
-   # Create new WSL
-   wsl --install -d Ubuntu-24.04
-   ```
-
 1. Clone the repo, and open VSCode in it:
 
    ```bash
