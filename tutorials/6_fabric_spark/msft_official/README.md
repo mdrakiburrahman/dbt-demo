@@ -26,6 +26,8 @@ Test connectivity:
 > Ensure you're logged into `az login` first
 
 ```bash
+az login
+
 cd "${GIT_ROOT}/tutorials/6_fabric_spark/msft_official/jaffle-shop-classic"
 export DBT_PROFILES_DIR=$(pwd)
 dbt debug
