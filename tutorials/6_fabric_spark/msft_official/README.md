@@ -14,6 +14,8 @@ cd "${GIT_ROOT}/tutorials/6_fabric_spark/msft_official"
 python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
+pip uninstall -y dbt-fabricspark 2>/dev/null
+pip install https://rakirahman.blob.core.windows.net/public/whls/dbt_fabricspark-1.9.1-py3-none-any.whl
 
 dbt --version
 ```
